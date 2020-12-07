@@ -1,11 +1,17 @@
-import express from 'express';
+import express from "express";
+import mongoose from "mongoose";
 
 const app = express();
 
-app.get('/', (req, res) => res.send('Express + TypeScript Server'));
+mongoose.connect("", { useNewUrlParser: true });
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', () => {
+    console.log('Database connected!')
+});
 
 
 const PORT: number = 8080;
 app.listen(PORT, () => {
-    console.log(`⚡️[server]: Server is running at https://localhost:${PORT}`);
+  console.log(`⚡️[server]: Server is running at http://localhost:${PORT}`);
 });
