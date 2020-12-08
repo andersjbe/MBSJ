@@ -1,6 +1,6 @@
 import { Document, model, Model, Schema } from "mongoose";
 
-interface IReport extends Document {
+export interface IReport extends Document {
   salary: number;
   company: string;
   location: {
